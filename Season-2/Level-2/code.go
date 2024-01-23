@@ -65,7 +65,7 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 
 		storedPassword, ok := testFakeMockUsers[email]
 		if !ok {
-			http.Error(w, "invalid email or password", http.StatusUnauthorized)
+			http.Error(w, "Invalid Email or Password", http.StatusUnauthorized)
 			return
 		}
 
