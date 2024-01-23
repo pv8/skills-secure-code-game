@@ -58,7 +58,6 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		password := reqBody.Password
 
 		if !isValidEmail(email) {
-			log.Printf("Invalid email format: %q", email)
 			http.Error(w, "Invalid email format", http.StatusBadRequest)
 			return
 		}
@@ -70,7 +69,6 @@ func loginHandler(w http.ResponseWriter, r *http.Request) {
 		}
 
 		if password == storedPassword {
-			log.Printf("User %q logged in successfully with a valid password %q", email, password)
 			w.WriteHeader(http.StatusOK)
 		} else {
 			http.Error(w, "Invalid Email or Password", http.StatusUnauthorized)
