@@ -39,11 +39,11 @@ def index():
         sanitized_planet = re.sub(r'[<>{}[\]]', '', planet if planet else '')
 
         if sanitized_planet:
-            if 'script' in sanitized_planet.lower() :
+            if 'script' in sanitized_planet.lower():
                 return '<h2>Blocked</h2></p>'
-    
-            return render_template('details.html', 
-                                   planet=sanitized_planet, 
+
+            return render_template('details.html',
+                                   planet=sanitized_planet,
                                    info=get_planet_info(sanitized_planet))
         else:
             return '<h2>Please enter a planet name.</h2>'
